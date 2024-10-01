@@ -6,7 +6,7 @@ namespace Infra.Repositories;
 
 public class BaseRepository<T> : IBaseRepository<T> where T : class
 {
-	private readonly HackathonDbContext _ctx;
+	protected readonly HackathonDbContext _ctx;
 	protected readonly DbSet<T> _dbSet;
 
 	public BaseRepository(HackathonDbContext ctx)
