@@ -5,10 +5,21 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Infra.Repositories;
 
-public class PacienteRepository : BaseRepository<Paciente>, IPacienteRepository
+public class PacienteRepository : IPacienteRepository
 {
-	public PacienteRepository(HackathonDbContext ctx) : base(ctx)
+	private readonly HackathonDbContext _ctx;
+
+	public PacienteRepository(HackathonDbContext ctx)
 	{
+		_ctx = ctx;
+	}
+
+	public async Task<Paciente> Add(Paciente paciente)
+	{
+		await _ctx.AddAsync(paciente);
+		await _ctx.SaveChangesAsync();
+
+		return paciente;
 	}
 
 	public async Task<Paciente> Login(string email, string senha)
@@ -23,5 +34,10 @@ public class PacienteRepository : BaseRepository<Paciente>, IPacienteRepository
 		return await _ctx.Medicos
 			.AsNoTracking()
 			.ToListAsync();
+	}
+
+	public Task<bool> ExistActiveUserWithEmail(string requestEmail)
+	{
+		return _ctx.Pacientes.AnyAsync(user => user.Email.Equals(requestEmail));
 	}
 }

@@ -6,4 +6,24 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="UseCases\Medico\" />
+    <Folder Include="UseCases\Apontamento\" />
+    <Folder Include="UseCases\Consulta\" />
+    <Folder Include="UseCases\Login\" />
+    <Folder Include="UseCases\Paciente\Update\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="13.0.1" />
+    <PackageReference Include="Extensions.FluentValidation.Br" Version="1.0.2" />
+    <PackageReference Include="FluentValidation" Version="11.10.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Communication\Communication.csproj" />
+    <ProjectReference Include="..\Domain\Domain.csproj" />
+    <ProjectReference Include="..\Exception\Exception.csproj" />
+  </ItemGroup>
+
 </Project>

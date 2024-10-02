@@ -4,9 +4,9 @@ using Infra.Data;
 
 namespace Infra.Repositories;
 
-public class ConsultaRepository : BaseRepository<Consulta>, IConsultaRepository
+public class ConsultaRepository : IConsultaRepository
 {
-	public ConsultaRepository(HackathonDbContext ctx) : base(ctx)
+	public ConsultaRepository(HackathonDbContext ctx) 
 	{
 	}
 }

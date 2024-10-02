@@ -29,7 +29,7 @@ public class HackathonDbContext : DbContext
 
 	protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 	{
-		var connectionString = _configuration.GetConnectionString("ConnectionStrings:DefaultConnection");
+		var connectionString = _configuration.GetConnectionString("DefaultConnection");
 		optionsBuilder.UseSqlServer(connectionString);
 		optionsBuilder.EnableSensitiveDataLogging();
 		base.OnConfiguring(optionsBuilder);

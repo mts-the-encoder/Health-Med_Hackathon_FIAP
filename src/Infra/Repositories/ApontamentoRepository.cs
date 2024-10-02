@@ -4,9 +4,25 @@ using Infra.Data;
 
 namespace Infra.Repositories;
 
-public class ApontamentoRepository : BaseRepository<Apontamento>, IApontamentoRepository
+public class ApontamentoRepository : IApontamentoRepository
 {
-	public ApontamentoRepository(HackathonDbContext ctx) : base(ctx)
+	private readonly HackathonDbContext _ctx;
+
+	public ApontamentoRepository(HackathonDbContext ctx) 
 	{
+	}
+
+	public async Task<Apontamento> Add(long medicoId, Apontamento apontamento)
+	{
+		await _ctx.AddAsync(apontamento);
+		await _ctx.SaveChangesAsync();
+
+		return apontamento;
+	}
+
+	public async Task AtualizaHorarioDisponivel(long medicoId, Apontamento apontamento)
+	{
+		_ctx.Update(apontamento);
+		await _ctx.SaveChangesAsync();
 	}
 }

@@ -19,7 +19,7 @@ public static class DependencyInjectionHelper
 	private static void AddContext(IServiceCollection services, IConfiguration configuration)
 	{
 		services.AddDbContext<HackathonDbContext>(options =>
-			options.UseSqlServer(configuration.GetConnectionString("ConnectionStrings:DefaultConnection")));
+			options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
 	}
 
 	private static void AddRepositories(IServiceCollection services)

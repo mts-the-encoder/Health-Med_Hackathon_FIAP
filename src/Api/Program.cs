@@ -1,3 +1,4 @@
+using Application;
 using Infra;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -6,8 +7,11 @@ var builder = WebApplication.CreateBuilder(args);
 
 //Infra
 builder.Services.AddDI(builder.Configuration);
+builder.Services.AddApplication();
 
 builder.Services.AddControllers();
+builder.Services.Configure<RouteOptions>(options => options.LowercaseUrls = true);
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

@@ -5,10 +5,13 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Infra.Repositories;
 
-public class MedicoRepository : BaseRepository<Medico>, IMedicoRepository
+public class MedicoRepository : IMedicoRepository
 {
-	public MedicoRepository(HackathonDbContext ctx) : base(ctx)
+	private readonly HackathonDbContext _ctx;
+
+	public MedicoRepository(HackathonDbContext ctx)
 	{
+		_ctx = ctx;
 	}
 
 	public async Task<Medico> Login(string email, string senha)
