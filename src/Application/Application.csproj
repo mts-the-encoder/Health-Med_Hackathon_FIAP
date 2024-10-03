@@ -7,7 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="UseCases\Consulta\" />
+    <Compile Remove="UseCases\Consulta\**" />
+    <EmbeddedResource Remove="UseCases\Consulta\**" />
+    <None Remove="UseCases\Consulta\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="UseCases\Medico\Update\" />
     <Folder Include="UseCases\Paciente\Update\" />
   </ItemGroup>
