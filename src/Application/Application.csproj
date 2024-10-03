@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="UseCases\Apontamento\" />
     <Folder Include="UseCases\Consulta\" />
     <Folder Include="UseCases\Medico\Update\" />
     <Folder Include="UseCases\Paciente\Update\" />

@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using Application.Tokens;
+using AutoMapper;
 using Communication.Requests;
 using Communication.Response;
 using Domain.Repositories;
@@ -11,11 +12,13 @@ public class RegisterPacienteUseCase : IRegisterPacienteUseCase
 {
 	private readonly IMapper _mapper;
 	private readonly IPacienteRepository _repository;
+	private readonly IAccessTokenGenerator _tokenGenerator;
 
-	public RegisterPacienteUseCase(IMapper mapper, IPacienteRepository repository)
+	public RegisterPacienteUseCase(IMapper mapper, IPacienteRepository repository, IAccessTokenGenerator tokenGenerator)
 	{
 		_mapper = mapper;
-		_repository = repository;	
+		_repository = repository;
+		_tokenGenerator = tokenGenerator;
 	}
 
 	public async Task<PacienteResponse> Execute(CreatePacienteRequest req)
@@ -29,7 +32,7 @@ public class RegisterPacienteUseCase : IRegisterPacienteUseCase
 		return new PacienteResponse
 		{
 			Nome = paciente.Nome,
-			//Token = _tokenGenerator.Generate(user)
+			Token = _tokenGenerator.Generate(paciente)
 		};
 	}
 

@@ -17,6 +17,7 @@ public class MapperConfig : Profile
 	{
 		CreateMap<CreatePacienteRequest, Paciente>();
 		CreateMap<CreateMedicoRequest, Medico>();
+		CreateMap<CreateApontamentoRequest, Apontamento>();
 	}
 
     private void EntityToResponse()
@@ -24,5 +25,6 @@ public class MapperConfig : Profile
         CreateMap<Paciente, PacienteResponse>();
         CreateMap<Medico, MedicoResponse>();
         CreateMap<Medico, MedicosResponse>();
+        CreateMap<Apontamento, ApontamentoResponse>();
 	}
 }

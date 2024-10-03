@@ -4,4 +4,5 @@ public class MedicoResponse
 {
 	public string Nome { get; set; }
 	public string CRM { get; set; }
+	public string Token { get; set; }
 }

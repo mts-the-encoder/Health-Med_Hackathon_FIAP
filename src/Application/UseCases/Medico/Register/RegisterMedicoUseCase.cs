@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using Application.Tokens;
+using AutoMapper;
 using Communication.Requests;
 using Communication.Response;
 using Domain.Repositories;
@@ -11,11 +12,13 @@ public class RegisterMedicoUseCase : IRegisterMedicoUseCase
 {
 	private readonly IMapper _mapper;
 	private readonly IMedicoRepository _repository;
+	private readonly IAccessTokenGenerator _tokenGenerator;
 
-	public RegisterMedicoUseCase(IMapper mapper, IMedicoRepository repository)
+	public RegisterMedicoUseCase(IMapper mapper, IMedicoRepository repository, IAccessTokenGenerator tokenGenerator)
 	{
 		_mapper = mapper;
 		_repository = repository;
+		_tokenGenerator = tokenGenerator;
 	}
 
 	public async Task<MedicoResponse> Execute(CreateMedicoRequest req)
@@ -29,8 +32,8 @@ public class RegisterMedicoUseCase : IRegisterMedicoUseCase
 		return new MedicoResponse
 		{
 			Nome = medico.Nome,
-			CRM = medico.CRM
-			//Token = _tokenGenerator.Generate(user)
+			CRM = medico.CRM,
+			Token = _tokenGenerator.Generate(medico)
 		};
 	}
 
