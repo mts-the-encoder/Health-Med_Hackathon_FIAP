@@ -3,17 +3,21 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34714.143
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api", "Api\Api.csproj", "{44135EA0-8FB7-4685-BA49-09D41DA03CAC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Api", "Api\Api.csproj", "{44135EA0-8FB7-4685-BA49-09D41DA03CAC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infra", "Infra\Infra.csproj", "{AAC9397A-9839-4D1D-B2F9-8FC2013E726E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infra", "Infra\Infra.csproj", "{AAC9397A-9839-4D1D-B2F9-8FC2013E726E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "Application\Application.csproj", "{C556F0E9-CBB1-4291-AFEA-9F24F4B51958}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application", "Application\Application.csproj", "{C556F0E9-CBB1-4291-AFEA-9F24F4B51958}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{A9B59CD5-F08D-40EC-8B10-E3BCC75A5437}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csproj", "{A9B59CD5-F08D-40EC-8B10-E3BCC75A5437}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exception", "Exception\Exception.csproj", "{F905D8C1-A477-43BE-A4F3-07989920A9BA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Exception", "Exception\Exception.csproj", "{F905D8C1-A477-43BE-A4F3-07989920A9BA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Communication", "Communication\Communication.csproj", "{09453519-81F9-483A-88A4-D669709E78BF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Communication", "Communication\Communication.csproj", "{09453519-81F9-483A-88A4-D669709E78BF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{DC48B2BD-CCF6-4C4C-844A-31874C4B35A8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonTestUtilities", "tests\CommonTestUtilities\CommonTestUtilities.csproj", "{16E6F0EB-75A0-4D93-BF2C-B78EDF81DE2F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,9 +49,16 @@ Global
 		{09453519-81F9-483A-88A4-D669709E78BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{09453519-81F9-483A-88A4-D669709E78BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{09453519-81F9-483A-88A4-D669709E78BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16E6F0EB-75A0-4D93-BF2C-B78EDF81DE2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16E6F0EB-75A0-4D93-BF2C-B78EDF81DE2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16E6F0EB-75A0-4D93-BF2C-B78EDF81DE2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16E6F0EB-75A0-4D93-BF2C-B78EDF81DE2F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{16E6F0EB-75A0-4D93-BF2C-B78EDF81DE2F} = {DC48B2BD-CCF6-4C4C-844A-31874C4B35A8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B437E0DD-8BC8-44D9-BDA7-A09AA253E019}
