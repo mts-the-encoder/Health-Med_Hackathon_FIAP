@@ -22,6 +22,11 @@ public class PacienteRepository : IPacienteRepository
 		return paciente;
 	}
 
+	public async Task<Paciente> GetUserByEmail(string requestEmail)
+	{
+		return await _ctx.Pacientes.AsNoTracking().FirstOrDefaultAsync(user => user.Email.Equals(requestEmail));
+	}
+
 	public async Task<Paciente> Login(string email, string senha)
 	{
 		return await _ctx.Pacientes

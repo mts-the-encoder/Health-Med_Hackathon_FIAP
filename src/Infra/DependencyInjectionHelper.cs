@@ -1,4 +1,5 @@
-﻿using Infra.Data;
+﻿using Application.Tokens;
+using Infra.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -12,6 +13,7 @@ public static class DependencyInjectionHelper
 	{
 		AddRepositories(services);
 		AddContext(services, configuration);
+		AddToken(services, configuration);
 
 		return services;
 	}
@@ -33,5 +35,12 @@ public static class DependencyInjectionHelper
 			foreach (var inter in interfaces)
 				services.AddScoped(inter, type);
 		}
+	}
+
+	private static void AddToken(IServiceCollection services, IConfiguration configuration)
+	{
+		var signingKey = configuration.GetSection("Settings:Jwt:SigningKey").Value;
+
+		services.AddScoped<IAccessTokenGenerator>(config => new JwtTokenGenerator(1000, signingKey!));
 	}
 }

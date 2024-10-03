@@ -8,4 +8,5 @@ public interface IPacienteRepository
 	Task<IEnumerable<Medico>> GetAllMedicosAsync();
 	Task<bool> ExistActiveUserWithEmail(string requestEmail);
 	Task<Paciente> Add(Paciente paciente);
+	Task<Paciente> GetUserByEmail(string requestEmail);
 }

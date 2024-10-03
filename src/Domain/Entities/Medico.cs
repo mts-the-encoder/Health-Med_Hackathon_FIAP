@@ -2,5 +2,5 @@
 
 public class Medico : Usuario
 {
-	public long CRM { get; set; }
+	public string CRM { get; set; }
 }

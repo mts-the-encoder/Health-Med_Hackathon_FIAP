@@ -16,10 +16,13 @@ public class MapperConfig : Profile
 	private void RequestToEntity()
 	{
 		CreateMap<CreatePacienteRequest, Paciente>();
+		CreateMap<CreateMedicoRequest, Medico>();
 	}
 
     private void EntityToResponse()
     {
         CreateMap<Paciente, PacienteResponse>();
-    }
+        CreateMap<Medico, MedicoResponse>();
+        CreateMap<Medico, MedicosResponse>();
+	}
 }
