@@ -9,14 +9,11 @@ public class CreatePacienteValidatorTest
 	[Fact]
 	public void Success()
 	{
-		//Arrange
 		var validator = new RegisterPacienteValidator();
 		var request = PacienteRequestBuilder.Build();
 
-		//Act
 		var result = validator.Validate(request);
 
-		//Assert
 		result.IsValid.Should().BeTrue();
 	}
 
@@ -56,6 +53,23 @@ public class CreatePacienteValidatorTest
 			.ContainSingle()
 				.And
 			.Contain(e => e.ErrorMessage.Equals("Email não pode ser vazio"));
+	}
+
+	[Theory]
+	[InlineData("")]
+	[InlineData("1")]
+	[InlineData("12")]
+	[InlineData("123")]
+	[InlineData("1234")]
+	public void Error_Password_Short(string password)
+	{
+		var validator = new RegisterPacienteValidator();
+		var request = PacienteRequestBuilder.Build();
+		request.Email = password;
+
+		var result = validator.Validate(request);
+
+		result.IsValid.Should().BeFalse();
 	}
 
 	[Fact]
