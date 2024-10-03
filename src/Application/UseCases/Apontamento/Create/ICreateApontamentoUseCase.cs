@@ -5,5 +5,5 @@ namespace Application.UseCases.Apontamento.Create;
 
 public interface ICreateApontamentoUseCase
 {
-	Task<ApontamentoResponse> Execute(CreateApontamentoRequest req);
+	Task<ApontamentoResponse> Execute(ApontamentoRequest req);
 }

@@ -1,4 +1,5 @@
 using System.Text;
+using Api.Filters;
 using Application;
 using Infra;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -49,6 +50,8 @@ builder.Services.AddSwaggerGen(config =>
 });
 
 var signingKey = builder.Configuration.GetValue<string>("Settings:Jwt:SigningKey");
+
+builder.Services.AddMvc(options => options.Filters.Add(typeof(ExceptionFilter)));
 
 builder.Services.AddAuthentication(config =>
 {

@@ -28,6 +28,18 @@ public class ApontamentoRepository : IApontamentoRepository
 		await _ctx.SaveChangesAsync();
 	}
 
+	public async Task<Apontamento> GetById(long id)
+	{
+		return await _ctx.Apontamentos
+			.FirstOrDefaultAsync(x => x.Id == id);
+	}
+
+	public async Task Update(Apontamento apontamento)
+	{
+		_ctx.Apontamentos.Update(apontamento);
+		await _ctx.SaveChangesAsync();
+	}
+
 	public async Task<bool> Disponibilidade(long medicoId, DayOfWeek dia, TimeSpan horarioInicial, TimeSpan horarioFinal)
 	{
 		return await _ctx.Apontamentos.AnyAsync(d =>

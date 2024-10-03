@@ -3,7 +3,7 @@ using FluentValidation;
 
 namespace Application.UseCases.Apontamento.Create;
 
-public class CreateApontamentoValidator : AbstractValidator<CreateApontamentoRequest>
+public class CreateApontamentoValidator : AbstractValidator<ApontamentoRequest>
 {
 	public CreateApontamentoValidator()
 	{

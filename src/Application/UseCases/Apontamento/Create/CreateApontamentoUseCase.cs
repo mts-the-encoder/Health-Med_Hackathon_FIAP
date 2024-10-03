@@ -18,7 +18,7 @@ public class CreateApontamentoUseCase : ICreateApontamentoUseCase
 		_mapper = mapper;
 	}
 
-	public async Task<ApontamentoResponse> Execute(CreateApontamentoRequest req)
+	public async Task<ApontamentoResponse> Execute(ApontamentoRequest req)
 	{
 		await Validate(req);
 
@@ -29,7 +29,7 @@ public class CreateApontamentoUseCase : ICreateApontamentoUseCase
 		return _mapper.Map<ApontamentoResponse>(apontamento);
 	}
 
-	private async Task Validate(CreateApontamentoRequest request)
+	private async Task Validate(ApontamentoRequest request)
 	{
 		var result = await new CreateApontamentoValidator().ValidateAsync(request);
 

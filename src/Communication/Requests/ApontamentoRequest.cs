@@ -1,6 +1,6 @@
 ﻿namespace Communication.Requests;
 
-public class CreateApontamentoRequest
+public class ApontamentoRequest
 {
 	public long MedicoId { get; set; }
 	public string HorarioInicial { get; set; } 
