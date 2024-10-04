@@ -9,7 +9,7 @@ public class PacienteRepositoryBuilder
 	private static PacienteRepositoryBuilder _instance;
 	private readonly Mock<IPacienteRepository> _repository;
 
-	private PacienteRepositoryBuilder()
+	public PacienteRepositoryBuilder()
 	{
 		_repository ??= new Mock<IPacienteRepository>();
 	}
@@ -26,6 +26,14 @@ public class PacienteRepositoryBuilder
 	}
 
 	public PacienteRepositoryBuilder GetById(Paciente paciente)
+	{
+		if (!string.IsNullOrWhiteSpace(paciente.Id.ToString()))
+			_repository.Setup(i => i.GetUserByEmail(paciente.Email)).ReturnsAsync(paciente);
+
+		return this;
+	}
+
+	public PacienteRepositoryBuilder GetUserByEmail(Paciente paciente)
 	{
 		if (!string.IsNullOrWhiteSpace(paciente.Id.ToString()))
 			_repository.Setup(i => i.GetUserByEmail(paciente.Email)).ReturnsAsync(paciente);

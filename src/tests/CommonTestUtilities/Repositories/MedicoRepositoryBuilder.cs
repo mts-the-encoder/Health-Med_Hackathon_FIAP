@@ -9,7 +9,7 @@ public class MedicoRepositoryBuilder
 	private static MedicoRepositoryBuilder _instance;
 	private readonly Mock<IMedicoRepository> _repository;
 
-	private MedicoRepositoryBuilder()
+	public MedicoRepositoryBuilder()
 	{
 		_repository ??= new Mock<IMedicoRepository>();
 	}
