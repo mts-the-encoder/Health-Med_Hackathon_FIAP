@@ -1,8 +1,6 @@
 ﻿using Application.UseCases.Apontamento.Create;
-using Application.UseCases.Medico.Register;
 using CommonTestUtilities.Requests;
 using FluentAssertions;
-using Moq;
 
 namespace Validators.Tests.Apontamento;
 
@@ -57,15 +55,13 @@ public class CreateApontamentoValidatorTest
 		var validator = new CreateApontamentoValidator();
 		var request = ApontamentoRequestBuilder.Build();
 
-		var horarioInicial = TimeSpan.Parse(request.HorarioInicial);
+		var horarioInicial = TimeSpan.Parse(request.HorarioInicial).Add(TimeSpan.FromDays(8));
 		var horarioFinal = TimeSpan.Parse(request.HorarioFinal);
-		var horarioInicialEsperado = horarioInicial.Add(horarioFinal);
 
 		var result = validator.Validate(request);
 
-		horarioInicialEsperado.Should().BeGreaterThan(horarioFinal);
+		horarioInicial.Should().BeGreaterThan(horarioFinal);
 		result.IsValid.Should().BeFalse();
-		
 	}
 
 	[Fact]
