@@ -36,7 +36,7 @@ public class CreateConsultaUseCase : ICreateConsultaUseCase
 			MedicoId = consulta.MedicoId,
 			ApontamentoId = consulta.ApontamentoId,
 			Atendimento = consulta.Atendimento,
-			Apontamento = _mapper.Map<ApontamentoResponse>(consulta.Apontamento),
+			Apontamento = _mapper.Map<ApontamentoResponse>(consulta.Apontamento), 
 			Paciente = _mapper.Map<PacienteResponse>(consulta.Paciente),
 			Medico = _mapper.Map<MedicoResponse>(consulta.Medico)
 		};

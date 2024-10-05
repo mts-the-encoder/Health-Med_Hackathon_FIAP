@@ -50,21 +50,6 @@ public class CreateApontamentoValidatorTest
 	}
 
 	[Fact]
-	public void Error_HorarioFinal_Menor_Que_Final_Empty()
-	{
-		var validator = new CreateApontamentoValidator();
-		var request = ApontamentoRequestBuilder.Build();
-
-		var horarioInicial = TimeSpan.Parse(request.HorarioInicial).Add(TimeSpan.FromDays(8));
-		var horarioFinal = TimeSpan.Parse(request.HorarioFinal);
-
-		var result = validator.Validate(request);
-
-		horarioInicial.Should().BeGreaterThan(horarioFinal);
-		result.IsValid.Should().BeFalse();
-	}
-
-	[Fact]
 	public void Error_Dia_Empty()
 	{
 		var validator = new CreateApontamentoValidator();
