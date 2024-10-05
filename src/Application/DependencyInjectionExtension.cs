@@ -1,4 +1,5 @@
-﻿using Application.Mapper;
+﻿using Application.EmailSender;
+using Application.Mapper;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 

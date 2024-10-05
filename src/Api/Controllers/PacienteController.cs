@@ -10,6 +10,7 @@ namespace Api.Controllers;
 [Authorize]
 public class PacienteController : HackathonController
 {
+	[AllowAnonymous]
 	[HttpPost]
 	[ProducesResponseType(typeof(PacienteResponse), StatusCodes.Status201Created)]
 	[ProducesResponseType(typeof(ErrorResponse), StatusCodes.Status400BadRequest)]

@@ -18,6 +18,7 @@ public class MapperConfig : Profile
 		CreateMap<CreatePacienteRequest, Paciente>();
 		CreateMap<CreateMedicoRequest, Medico>();
 		CreateMap<ApontamentoRequest, Apontamento>();
+		CreateMap<ConsultaRequest, Consulta>();
 	}
 
     private void EntityToResponse()
@@ -26,5 +27,6 @@ public class MapperConfig : Profile
         CreateMap<Medico, MedicoResponse>();
         CreateMap<Medico, MedicosResponse>();
         CreateMap<Apontamento, ApontamentoResponse>();
+        CreateMap<Consulta, ConsultaResponse>();
 	}
 }

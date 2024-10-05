@@ -1,10 +1,11 @@
-using System.Text;
 using Api.Filters;
 using Application;
 using Infra;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using System.Text;
+using Application.EmailSender;
 
 var builder = WebApplication.CreateBuilder(args);
 
